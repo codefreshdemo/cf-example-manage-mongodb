@@ -25,7 +25,7 @@ steps:
         mongodb:
           image: mongo
           ports:
-              - "27017:27017"
+            - 28017
 
         mongo_seed:
           image: ${{mongo_seed}}
@@ -34,7 +34,8 @@ steps:
 
         client:
           image: ${{build_prj}}
-          links:
+          depends_on:
+            - mongo_seed
             - mongodb
           ports:
             - 9000
