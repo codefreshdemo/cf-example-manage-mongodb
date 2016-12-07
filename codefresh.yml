@@ -1,0 +1,43 @@
+version: '1.0'
+
+steps:
+  build_prj:
+    type: build
+    description: codefresh example
+    image_name: codefreshio/express-angular-mongo
+    dockerfile: Dockerfile
+    tag: latest
+
+  mongo_seed:
+    type: build
+    image_name: codefreshio/mongo_seed
+    dockerfile: Dockerfile
+    working-directory: ${{main_clone}}/mongo-seed
+    tag: latest
+
+  launch_composition:
+    type: launch-composition
+    environmentName: 'env-composition-example'
+    entry_point: client
+    composition:
+      version: '2'
+      services:
+        mongodb:
+          image: mongo
+          ports:
+            - 28017
+
+        mongo_seed:
+          image: ${{mongo_seed}}
+          links:
+            - mongodb
+
+        client:
+          image: ${{build_prj}}
+          links:
+            - mongodb
+          ports:
+            - 9000
+          environment:
+            - MONGO_URI=mongodb://mongodb/exampleDb
+
