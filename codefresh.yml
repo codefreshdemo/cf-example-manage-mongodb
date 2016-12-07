@@ -24,6 +24,8 @@ steps:
       services:
         mongodb:
           image: mongo
+          ports:
+              - "27017:27017"
 
         mongo_seed:
           image: ${{mongo_seed}}
