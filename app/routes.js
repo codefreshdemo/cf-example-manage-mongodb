@@ -10,10 +10,10 @@ module.exports = function(app) {
 
 		// mongoose get all contacts
 		Contact.find(function(err, contacts) {
-
+			console.log("contacts:" + JSON.stringify(contacts));
 			// send an error
 			if (err)
-				res.send(err)
+				res.send(err);
 
 			res.json(contacts); // return all contacts
 		});
