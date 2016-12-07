@@ -34,8 +34,7 @@ steps:
 
         client:
           image: ${{build_prj}}
-          depends_on:
-            - mongo_seed
+          links:
             - mongodb
           ports:
             - 9000
