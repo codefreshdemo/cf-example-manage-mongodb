@@ -1,0 +1,22 @@
+version: '2'
+services:
+  mongodb:
+    image: mongo
+    ports:
+      - 28017
+
+  mongo_seed:
+    build: ./mongo-seed
+    links:
+      - mongodb
+
+  client:
+    build: .
+    depends_on:
+      - mongo_seed
+    links:
+      - mongodb
+    ports:
+      - 9000
+    environment:
+      - MONGO_URI=mongodb://mongodb/exampleDb
