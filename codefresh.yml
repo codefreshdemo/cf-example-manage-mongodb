@@ -37,5 +37,5 @@ steps:
           ports:
             - 9000
           environment:
-            - MONGO_URI=mongodb://mongodb/exampleDb
+            - MONGO_URI=mongodb://mongodb:27017/exampleDb
 
