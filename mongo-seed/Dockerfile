@@ -2,4 +2,7 @@ FROM mongo
 
 COPY init.json /init.json
 
-CMD mongoimport --host mongodb --db exampleDb --collection contacts --type json --file /init.json --jsonArray
+ADD start.sh /start.sh
+RUN chmod +x /start.sh
+
+CMD "/start.sh"
