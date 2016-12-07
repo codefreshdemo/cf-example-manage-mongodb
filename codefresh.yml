@@ -23,9 +23,7 @@ steps:
       version: '2'
       services:
         mongodb:
-          image: mongo
-          ports:
-            - 28017
+          image: mongo:3.2.11
 
         mongo_seed:
           image: ${{mongo_seed}}
