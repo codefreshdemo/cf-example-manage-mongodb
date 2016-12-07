@@ -6,14 +6,14 @@ steps:
     description: codefresh example
     image_name: codefreshio/express-angular-mongo
     dockerfile: Dockerfile
-    tag: latest
+    tag: ${{CF_BRANCH}}
 
   mongo_seed:
     type: build
     image_name: codefreshio/mongo_seed
     dockerfile: Dockerfile
     working_directory: ${{main_clone}}/mongo-seed
-    tag: latest
+    tag: ${{CF_BRANCH}}
 
   launch_composition:
     type: launch-composition
@@ -23,7 +23,7 @@ steps:
       version: '2'
       services:
         mongodb:
-          image: mongo:3.2.11
+          image: mongo
 
         mongo_seed:
           image: ${{mongo_seed}}
