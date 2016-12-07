@@ -12,7 +12,7 @@ steps:
     type: build
     image_name: codefreshio/mongo_seed
     dockerfile: Dockerfile
-    working-directory: ${{main_clone}}/mongo-seed
+    working_directory: ${{main_clone}}/mongo-seed
     tag: latest
 
   launch_composition:
@@ -25,12 +25,12 @@ steps:
         mongodb:
           image: mongo
           ports:
-            - 27017
+            - 28017
 
-        mongo_seed:
-          image: ${{mongo_seed}}
-          links:
-            - mongodb
+#        mongo_seed:
+#          image: ${{mongo_seed}}
+#          links:
+#            - mongodb
 
         client:
           image: ${{build_prj}}
