@@ -24,7 +24,6 @@ steps:
       services:
         mongodb:
           image: mongo
-          command: mongod --fork --dbpath /vol/data/db --logpath /var/log/mongodb.log
           ports:
             - 28017
 
