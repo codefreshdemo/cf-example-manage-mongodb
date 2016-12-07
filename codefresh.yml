@@ -24,13 +24,11 @@ steps:
       services:
         mongodb:
           image: mongo
-          ports:
-            - 28017
 
-#        mongo_seed:
-#          image: ${{mongo_seed}}
-#          links:
-#            - mongodb
+        mongo_seed:
+          image: ${{mongo_seed}}
+          links:
+            - mongodb
 
         client:
           image: ${{build_prj}}
