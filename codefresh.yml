@@ -24,8 +24,9 @@ steps:
       services:
         mongodb:
           image: mongo
+          command: mongod --smallfiles
           ports:
-            - 28017
+            - 27017
 
         mongo_seed:
           image: ${{mongo_seed}}
@@ -39,5 +40,5 @@ steps:
           ports:
             - 9000
           environment:
-            - MONGO_URI=mongodb://mongodb/exampleDb
+            - MONGO_URI=mongodb:27017/exampleDb
 
