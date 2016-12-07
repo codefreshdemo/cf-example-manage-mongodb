@@ -12,8 +12,6 @@ services:
 
   client:
     build: .
-    depends_on:
-      - mongo_seed
     links:
       - mongodb
     ports:
