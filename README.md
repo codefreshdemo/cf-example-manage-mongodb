@@ -2,7 +2,7 @@
 
 So, you've decided to try Codefresh? Welcome on board!
 
-Using this repository we'll help you get up to speed with basic functionality such as: *compiling*, *testing* and *building Docker images*.
+Using this repository we'll help you get up to speed with basic functionality such as: *compiling*, *building Docker images* and *launching compositions*.
 
 This project uses `Node Js` to build an application which will eventually become a distributable Docker image.
 
